@@ -8,12 +8,12 @@ import javax.naming.InitialContext;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 
-import ec.edu.ups.appdis.ExamenPaltaRaynerServidor.negocio.GestionSistemaRemoto;
+import ec.edu.ups.appdis.ExamenPaltaRaynerServidor.negocio.GestionProveedorRemoto;
 
 import java.awt.Color;
 
 public class VentanaListarSolicitudes {
-	private GestionSistemaRemoto remoto;
+	private GestionProveedorRemoto on;
 	private JFrame frmSolicitudesEnvios;
 	private JTable table;
 
@@ -70,9 +70,9 @@ public class VentanaListarSolicitudes {
               
             final Context context = new InitialContext(jndiProperties);  
               
-            final String lookupName = 	"ejb:/ExamenPaltaRaynerServidor/SistemaEnviosON!ec.edu.ups.appdis.ExamenPaltaRaynerServidor.negocio.GestionSistemaRemoto";
-            
-            this.remoto = (GestionSistemaRemoto) context.lookup(lookupName);  
+            final String lookupName = 	"ejb:/envio/GestionProveedorOn!ec.ups.edu.envio.servicio.GestionsProveedorRemoto";
+            this.on = (GestionProveedorRemoto) context.lookup(lookupName);  
+            System.out.print(on.obtenerProductos());
               
         } catch (Exception ex) {  
             ex.printStackTrace();  
